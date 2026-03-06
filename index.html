@@ -165,6 +165,8 @@
         <div id="phone" class="lifeline" onclick="usePhone()">📞</div>
         <div id="audience" class="lifeline" onclick="useAudience()">👥</div>
     </div>
+    <div id="lifeline-text">
+    </div>
 </div>
 
 
@@ -273,7 +275,7 @@
         if(document.getElementById('phone').classList.contains('used')) return;
         const correct = questions[currentLevel].c;
         const letters = ['A', 'B', 'C', 'D'];
-        alert("Przyjaciel mówi: Wydaje mi się, że poprawna odpowiedź to " + letters[correct]);
+        document.getElementById('lifeline-text').innerHTML("Przyjaciel mówi: Wydaje mi się, że poprawna odpowiedź to " + letters[correct]);
         document.getElementById('phone').classList.add('used');
     }
 
@@ -281,7 +283,7 @@
     function useAudience() {
         if(document.getElementById('audience').classList.contains('used')) return;
         const correct = questions[currentLevel].c;
-        alert(`Głosowanie publiczności:\nA: ${correct===0?'60%':'10%'}\nB: ${correct===1?'60%':'10%'}\nC: ${correct===2?'60%':'10%'}\nD: ${correct===3?'60%':'20%'}`);
+        document.getElementById('lifeline-text').innerHTML(`Głosowanie publiczności:\nA: ${correct===0?'60%':'10%'}\nB: ${correct===1?'60%':'10%'}\nC: ${correct===2?'60%':'10%'}\nD: ${correct===3?'60%':'20%'}`);
         document.getElementById('audience').classList.add('used');
     }
 
